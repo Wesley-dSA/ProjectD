@@ -1,0 +1,113 @@
+/* Estilos gerais para todos os tamanhos de tela */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #314401;
+    width: 100%;
+    height: 25pt;
+}
+
+nav{
+   text-align: end;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    padding-left: 25pt;
+    padding-right: 25pt;
+}
+
+nav a::after{
+    content: " ";
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+
+nav a::hover ::after{
+    width: 100%;
+}
+
+#T3{
+    padding-right: 100pt;
+}
+
+main{
+    background-color: #f6f3ef;
+}
+
+img{
+    margin-top:10px;
+    width: 125pt;
+    height: 125pt;
+}
+
+section {
+    text-align: center;
+    align-items: center;
+}
+
+input{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-radius: 0.75em;
+    background-color: #f6f3ef;
+    color: #000;
+}
+
+input::placeholder{
+    color: #314401;
+}
+
+footer {
+    background-color: #314401;
+    text-align: center;
+    width: 100%;
+    height: 50pt;
+}
+
+footer p{
+    justify-items: center;
+    color: azure;
+}
+
+
+@media (max-width: 600px) {
+    nav ul {
+        text-align: center;
+    }
+
+    nav li {
+        display: block;
+    }
+
+    section {
+        text-align: center;
+    }
+}
+
+
+@media (min-width: 600px) and (max-width: 900px) {
+   
+}
+
+
+@media (min-width: 900px) {
+    
+}
+
+
