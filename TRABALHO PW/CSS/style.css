@@ -1,90 +1,68 @@
-/* Estilos gerais para todos os tamanhos de tela */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-header {
+header{
     background-color: #314401;
     width: 100%;
-    height: 25pt;
+    height: 25px;
+    text-align: center;
 }
 
-nav{
-   text-align: end;
+body {
+  background-color: #f2f2f2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-nav li {
-    display: inline;
-    margin-right: 20px;
+
+footer {
+  background-color: #314401;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-nav a {
-    text-decoration: none;
-    color: #000;
-    padding-left: 25pt;
-    padding-right: 25pt;
-}
-
-nav a::after{
-    content: " ";
-    width: 100%;
-    height: 4px;
-    background-color: #000;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: 0.5s ease-in-out;
-}
-
-nav a::hover ::after{
-    width: 100%;
-}
-
-#T3{
-    padding-right: 100pt;
-}
-
-main{
-    background-color: #f6f3ef;
+footer p {
+  margin: 0;
+  color: #f6f3ef;
 }
 
 img{
-    margin-top:10px;
-    width: 125pt;
-    height: 125pt;
-}
-
-section {
-    text-align: center;
-    align-items: center;
-}
-
-input{
     margin-top: 25px;
-    margin-bottom: 10px;
-    border-radius: 0.75em;
-    background-color: #f6f3ef;
-    color: #000;
+    width: 200px;
+    height: 200px;
 }
 
-input::placeholder{
-    color: #314401;
+section{
+   display: inline-block;
 }
 
-footer {
-    background-color: #314401;
-    text-align: center;
+
+.container {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 50pt;
-}
+    margin-top: 180px;
+  }
+  
+  .card {
+    background-color: #ffffff80;
+    padding: 50px;
+    border-radius: 4%;
+    box-shadow: 3px 3px 1px 0px #00000060;
+  }
 
-footer p{
-    justify-items: center;
-    color: azure;
+main section nav{
+    text-align: end;
 }
-
 
 @media (max-width: 600px) {
     nav ul {

@@ -151,6 +151,10 @@ button:hover{
   display: none;
 }
 
+ul{
+  margin: 0;
+}
+
 @media (max-width: 600px) {
     nav ul {
         text-align: center;

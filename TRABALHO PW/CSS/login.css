@@ -14,7 +14,7 @@ header{
 }
 
 body {
-  background-color: #f6f3ef;
+  background-color: #f2f2f2;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -37,15 +37,15 @@ footer p {
 
 img{
     margin-top: 25px;
-    width: 125px;
-    height: 125px;
+    width: 200px;
+    height: 200px;
 }
 
 .container {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 125px;
+  margin-top: 180px;
 }
 
 .card {

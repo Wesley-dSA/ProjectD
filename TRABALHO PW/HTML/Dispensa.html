@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Certa</title>
     <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="text/javascript" href="jquery-3.7.1.min.js"></script>
-    <script src="text/javascript" href="script.js"></script>
-
+    <link rel="stylesheet" href="/ProjectD/TRABALHO PW/CSS/style.css">
 </head>
 <body>
     <header>
-        <img src="Documentos/image/jas.png">
-        <nav>
-            <ul>
-                <li><a href="login.html">Tela 1</a></li>
-                <li><a href="telaTwo.html">Tela 2</a></li>
-                <li><a href="telaThree.html">Tela 3</a></li>
-            </ul>
-        </nav>
+        <img src="/ProjectD/image/logo.png">
     </header>
-    <main>
-        <section>
-            <h2></h2>
-            <p></p>
+    <main class="container">
+        <section class="card">
+            <input id="searchInput" type="text" placeholder="Pesquisar alimento" onkeyup="searchItem()">
+            <h1>Gerenciador de Alimentos</h1>
+            <input id="itemName" type="text" placeholder="Nome do produto">
+            <input id="itemQuantity" type="number" placeholder="Quantidade">
+            <input id="itemExpiry" type="date" placeholder="Data de validade">
+            <button onclick="addItem()">Adicionar</button>
+            <nav id="itemList"></nav>
         </section>
         <section>
             <h2></h2>
@@ -37,7 +32,7 @@
     <footer>
         <p>&copy; Andreza Gaspari / Ana Luiza Quintana / Wesley Aragão</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="/ProjectD/TRABALHO PW/JavaScript/scriptInicial.js"></script>
 </body>
 </html>
  
