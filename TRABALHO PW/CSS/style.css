@@ -60,9 +60,6 @@ section{
     box-shadow: 3px 3px 1px 0px #00000060;
   }
 
-main section nav{
-    text-align: end;
-}
 
 @media (max-width: 600px) {
     nav ul {
