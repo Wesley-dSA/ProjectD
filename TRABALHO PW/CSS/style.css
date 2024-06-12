@@ -60,6 +60,10 @@ section{
     box-shadow: 3px 3px 1px 0px #00000060;
   }
 
+nav #itemList{
+  text-align: justify;
+}
+
 
 @media (max-width: 600px) {
     nav ul {
@@ -84,5 +88,3 @@ section{
 @media (min-width: 900px) {
     
 }
-
-

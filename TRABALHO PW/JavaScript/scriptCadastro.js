@@ -77,38 +77,40 @@ confirmSenha.addEventListener('keyup', () => {
   }
 })
 
-function cadastrar(){
-  if(validNome && validUsuario && validSenha && validConfirmSenha){
-    let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
-    
-    listaUser.push(
-    {
+// scriptCadastro.js
+function cadastrar() {
+  if (validNome && validUsuario && validSenha && validConfirmSenha) {
+    let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
+
+    const usuarioObj = {
       nomeCad: nome.value,
       userCad: usuario.value,
       senhaCad: senha.value
-    }
-    )
+    };
+
+    listaUser.push(usuarioObj);
+    localStorage.setItem('listaUser', JSON.stringify(listaUser));
     
-    localStorage.setItem('listaUser', JSON.stringify(listaUser))
-    
-   
-    msgSuccess.setAttribute('style', 'display: block')
-    msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>'
-    msgError.setAttribute('style', 'display: none')
-    msgError.innerHTML = ''
-    
-    setTimeout(()=>{
-        window.location.href = './login.html'
-    }, 3000)
-  
-    
+    // Criar uma chave única para o usuário para armazenar os produtos
+    localStorage.setItem(usuario.value + '_items', JSON.stringify([]));
+
+    msgSuccess.setAttribute('style', 'display: block');
+    msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>';
+    msgError.setAttribute('style', 'display: none');
+    msgError.innerHTML = '';
+
+    setTimeout(() => {
+      window.location.href = './login.html';
+    }, 3000);
   } else {
-    msgError.setAttribute('style', 'display: block')
-    msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
-    msgSuccess.innerHTML = ''
-    msgSuccess.setAttribute('style', 'display: none')
+    msgError.setAttribute('style', 'display: block');
+    msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>';
+    msgSuccess.innerHTML = '';
+    msgSuccess.setAttribute('style', 'display: none');
   }
 }
+
+
 
 btn.addEventListener('click', ()=>{
   let inputSenha = document.querySelector('#senha')

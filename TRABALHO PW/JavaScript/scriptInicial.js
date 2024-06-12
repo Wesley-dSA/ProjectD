@@ -1,49 +1,161 @@
-var items = [];
-
-function formatDate(date) {
-    var parts = date.split('-');
-    return `${parts[2]}/${parts[1]}/${parts[0]}`;
-}
-
-function addItem() {
-    var itemName = document.getElementById('itemName');
-    var itemQuantity = document.getElementById('itemQuantity');
-    var itemExpiry = document.getElementById('itemExpiry');
-    var itemList = document.getElementById('itemList');
-    
-    var formattedExpiry = formatDate(itemExpiry.value);
-
-    var itemDiv = document.createElement('div');
-    itemDiv.textContent = `Produto: ${itemName.value}, Quantidade: ${itemQuantity.value}, Validade: ${formattedExpiry}`;
+// scriptInicial.js
+window.onload = function() {
+    carregarItens();
+    document.getElementById('pesquisa').addEventListener('input', pesquisarItens);
+  };
+  
+  function carregarItens() {
+    let userLogado = JSON.parse(localStorage.getItem('userLogado') || '{}');
+    let usuarioLogado = userLogado.user;
+  
+    if (!usuarioLogado) {
+      console.error('Nenhum usuário logado encontrado.');
+      return;
+    }
+  
+    let items = JSON.parse(localStorage.getItem(usuarioLogado + '_items') || '[]');
+    items.forEach(item => {
+      addItemToDOM(item.name, item.quantity, item.expiry);
+    });
+  }
+  
+  function addItem() {
+    let userLogado = JSON.parse(localStorage.getItem('userLogado') || '{}');
+    let usuarioLogado = userLogado.user;
+  
+    if (!usuarioLogado) {
+      console.error('Nenhum usuário logado encontrado.');
+      return;
+    }
+  
+    let itemName = document.getElementById('itemName').value.trim();
+    let itemQuantity = document.getElementById('itemQuantity').value.trim();
+    let itemExpiry = document.getElementById('itemExpiry').value.trim();
+  
+    if (!itemName || !itemQuantity || !itemExpiry) {
+      alert('Todos os campos são obrigatórios.');
+      return;
+    }
+  
+    let formattedExpiry = formatDate(itemExpiry);
+  
+    let items = JSON.parse(localStorage.getItem(usuarioLogado + '_items') || '[]');
+    let newItem = { name: itemName, quantity: parseInt(itemQuantity), expiry: formattedExpiry };
+    items.push(newItem);
+    localStorage.setItem(usuarioLogado + '_items', JSON.stringify(items));
+  
+    addItemToDOM(itemName, itemQuantity, formattedExpiry);
+    verificarItensFaltantes();
+  
+    document.getElementById('itemName').value = '';
+    document.getElementById('itemQuantity').value = '';
+    document.getElementById('itemExpiry').value = '';
+  }
+  
+  function addItemToDOM(itemName, itemQuantity, itemExpiry) {
+    let itemList = document.getElementById('itemList');
+    let itemDiv = document.createElement('div');
     itemDiv.className = 'item';
-
-    var removeButton = document.createElement('button');
+  
+    let itemText = document.createElement('span');
+    itemText.textContent = `${itemName} ${itemQuantity} ${itemExpiry}`;
+    itemDiv.appendChild(itemText);
+  
+    let increaseButton = document.createElement('button');
+    increaseButton.textContent = '+';
+    increaseButton.onclick = function() {
+      updateItemQuantity(itemName, 1);
+    };
+  
+    let decreaseButton = document.createElement('button');
+    decreaseButton.textContent = '-';
+    decreaseButton.onclick = function() {
+      updateItemQuantity(itemName, -1);
+    };
+  
+    let removeButton = document.createElement('button');
     removeButton.textContent = 'Remover';
     removeButton.onclick = function() {
-        var index = items.indexOf(itemName.value);
-        if (index > -1) {
-            items.splice(index, 1);
-        }
-        itemList.removeChild(itemDiv);
+      let userLogado = JSON.parse(localStorage.getItem('userLogado') || '{}');
+      let usuarioLogado = userLogado.user;
+      let items = JSON.parse(localStorage.getItem(usuarioLogado + '_items') || '[]');
+      items = items.filter(item => item.name !== itemName);
+      localStorage.setItem(usuarioLogado + '_items', JSON.stringify(items));
+      itemList.removeChild(itemDiv);
+      verificarItensFaltantes();
     };
-
+  
+    itemDiv.appendChild(increaseButton);
+    itemDiv.appendChild(decreaseButton);
     itemDiv.appendChild(removeButton);
     itemList.appendChild(itemDiv);
-
-    items.push({name: itemName.value, div: itemDiv});
-    itemName.value = '';
-    itemQuantity.value = '';
-    itemExpiry.value = '';
-}
-
-function searchItem() {
-    var searchInput = document.getElementById('searchInput').value.toLowerCase();
-
-    for (var i = 0; i < items.length; i++) {
-        if (items[i].name.toLowerCase().includes(searchInput)) {
-            items[i].div.style.display = '';
-        } else {
-            items[i].div.style.display = 'none';
-        }
+  }
+  
+  function updateItemQuantity(itemName, quantityChange) {
+    let userLogado = JSON.parse(localStorage.getItem('userLogado') || '{}');
+    let usuarioLogado = userLogado.user;
+  
+    if (!usuarioLogado) {
+      console.error('Nenhum usuário logado encontrado.');
+      return;
     }
-}
+  
+    let items = JSON.parse(localStorage.getItem(usuarioLogado + '_items') || '[]');
+    let item = items.find(item => item.name === itemName);
+    if (item) {
+      item.quantity += quantityChange;
+      if (item.quantity < 0) item.quantity = 0;
+      localStorage.setItem(usuarioLogado + '_items', JSON.stringify(items));
+      document.getElementById('itemList').innerHTML = '';
+      carregarItens();
+      verificarItensFaltantes();
+    }
+  }
+  
+  function verificarItensFaltantes() {
+    let userLogado = JSON.parse(localStorage.getItem('userLogado') || '{}');
+    let usuarioLogado = userLogado.user;
+  
+    if (!usuarioLogado) {
+      console.error('Nenhum usuário logado encontrado.');
+      return;
+    }
+  
+    let items = JSON.parse(localStorage.getItem(usuarioLogado + '_items') || '[]');
+    let listaCompras = JSON.parse(localStorage.getItem(usuarioLogado + '_listaCompras') || '[]');
+  
+    items.forEach(item => {
+      if (item.quantity <= 0 && !listaCompras.find(i => i.name === item.name)) {
+        listaCompras.push({ name: item.name, quantity: 5 }); // Adiciona com quantidade padrão
+      }
+    });
+  
+    localStorage.setItem(usuarioLogado + '_listaCompras', JSON.stringify(listaCompras));
+  }
+  
+  function pesquisarItens() {
+    let userLogado = JSON.parse(localStorage.getItem('userLogado') || '{}');
+    let usuarioLogado = userLogado.user;
+    let searchQuery = document.getElementById('pesquisa').value.toLowerCase();
+    
+    let items = JSON.parse(localStorage.getItem(usuarioLogado + '_items') || '[]');
+    let itemList = document.getElementById('itemList');
+  
+    itemList.innerHTML = '';
+  
+    items.forEach(item => {
+      if (item.name.toLowerCase().includes(searchQuery)) {
+        addItemToDOM(item.name, item.quantity, item.expiry);
+      }
+    });
+  }
+  
+  function formatDate(date) {
+    let parts = date.split('-');
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+  }
+
+  function irParaLista(){
+    window.location.href = "/ProjectD/TRABALHO PW/HTML/Lista.html"
+  }
+  
