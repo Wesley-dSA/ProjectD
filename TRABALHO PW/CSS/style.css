@@ -64,6 +64,9 @@ nav #itemList{
   text-align: justify;
 }
 
+a{
+  color: #f2f2f2;
+}
 
 @media (max-width: 600px) {
     nav ul {

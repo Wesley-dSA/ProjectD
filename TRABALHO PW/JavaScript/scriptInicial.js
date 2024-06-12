@@ -125,8 +125,8 @@ window.onload = function() {
     let listaCompras = JSON.parse(localStorage.getItem(usuarioLogado + '_listaCompras') || '[]');
   
     items.forEach(item => {
-      if (item.quantity <= 0 && !listaCompras.find(i => i.name === item.name)) {
-        listaCompras.push({ name: item.name, quantity: 5 }); // Adiciona com quantidade padrão
+      if (item.quantity <= 5 && !listaCompras.find(i => i.name === item.name)) {
+        listaCompras.push({ name: item.name, quantity: 1 }); // Adiciona com quantidade padrão
       }
     });
   
