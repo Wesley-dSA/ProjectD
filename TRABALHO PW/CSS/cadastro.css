@@ -134,9 +134,10 @@ button:hover{
 }
 
 #msgError{
+  font-weight: bold;
   text-align: center;
   color: #ff0000;
-  background-color: #ffbbbb;
+  background-color: #d4ecdb;
   padding: 10px;
   border-radius: 4px;
   display: none;

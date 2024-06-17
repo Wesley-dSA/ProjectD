@@ -14,52 +14,48 @@ header{
 }
 
 body {
-  background-color: #f2f2f2;
+  background-color: #f6f3ef;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  padding-bottom: 60px;
+  background-attachment: fixed
+  
 }
 
-
-footer {
+footer{
   background-color: #314401;
-  padding-top: 15px;
+  padding: 20px;
   text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
-}
-
-footer p {
-  margin: 0;
   color: #f6f3ef;
 }
 
 img{
     margin-top: 25px;
-    width: 200px;
-    height: 200px;
+    width: 125px;
+    height: 125px;
 }
 
 .container {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 180px;
+  margin-top: 130px;
 }
 
 .card {
   background-color: #ffffff80;
-  padding: 50px;
+  padding: 30px;
   border-radius: 4%;
-  box-shadow: 3px 3px 1px 0px #00000060
+  box-shadow: 3px 3px 1px 0px #00000060;
+  width: 400px;
 }
 
 h1{
   text-align: center;
   margin-bottom: 20px;
-  color: #96AB4D;
+  color:  #96AB4D;
 }
 
 .label-float input{
@@ -106,8 +102,8 @@ h1{
 
 button{
   background-color: transparent;
-  border-color: #96AB4D;
-  color: #96AB4D;
+  border-color:  #96AB4D;
+  color:  #96AB4D;
   padding: 7px;
   font-weight: bold;
   font-size: 12pt;
@@ -128,45 +124,35 @@ button:hover{
   justify-content: center;
 }
 
-hr{
-  margin-top: 10%;
-  margin-bottom: 10%;
-  width: 60%;
-}
-
-p{
-  color: #314401;
-  font-size: 14pt;
-  text-align: center;
-}
-
-a{
-  color:#96AB4D;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all .3s ease-out;
-}
-
-a:hover{
-  color: #96AB4D;
-}
-
 .fa-eye{
   position: absolute;
   top: 15px;
   right: 10px;
   cursor: pointer;
-  color: #96AB4D;
+  color: #314401;
 }
 
- #msgError{
-  font-weight: bold;
+#msgError{
+    font-weight: bold;
+    text-align: center;
+    color: #ff0000;
+    background-color: #d4ecdb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+  }
+
+#msgSuccess{
   text-align: center;
-  color: #ff0000;
-  background-color: #d4ecdb;
+  color: #00bb00;
+  background-color: #bbffbe;
   padding: 10px;
   border-radius: 4px;
   display: none;
+}
+
+ul{
+  margin: 0;
 }
 
 @media (max-width: 600px) {
@@ -192,5 +178,6 @@ a:hover{
 @media (min-width: 900px) {
     
 }
+
 
 

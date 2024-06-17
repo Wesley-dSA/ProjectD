@@ -4,33 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Certa</title>
-    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/ProjectD/TRABALHO PW/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="/ProjectD/image/icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/ProjectD/TRABALHO PW/CSS/style.css">
+    <script src="/ProjectD/TRABALHO PW/JavaScript/scriptInicial.js"></script>
 </head>
 <body>
     <header>
-        <img src="/ProjectD/image/logo.png">
+        <img src="/ProjectD/image/logo.png" alt="">
+
+            <nav class="user-menu">
+                <span class="material-icons" onclick="MenuUser()">account_circle</span>
+                <div id="userDropdown" class="dropdown-content">
+                    <a href="#" onclick="sair()"> <p><span class="material-icons">logout</span></p></a>
+                </div>
+            </nav>         
     </header>
     <main class="container">
-        <section class="card">
-            <input id="searchInput" type="text" placeholder="Pesquisar alimento" onkeyup="searchItem()">
-            <h1>Gerenciador de Alimentos</h1>
-            <input id="itemName" type="text" placeholder="Nome do produto">
-            <input id="itemQuantity" type="number" placeholder="Quantidade">
-            <input id="itemExpiry" type="date" placeholder="Data de validade">
-            <button onclick="addItem()">Adicionar</button>
-            <nav id="itemList"></nav>
-        </section>
-        <section>
-            <h2></h2>
-            <p></p>
-                <button onclick="irParaLista()">Lista de Compras</button>
-        </section>
+        <div class="content">
+            <section class="card">
+                <nav class="pesq">
+                    <input id="pesquisa" type="text" placeholder="Pesquisar alimento" onkeyup="searchItem()">
+                </nav>
+                <nav>
+                    <h1>Gerenciador de Alimentos</h1>
+                    <input id="itemName" type="text" placeholder="Nome do produto">
+                    <input id="itemQuantity" type="number" placeholder="Quantidade">
+                    <input id="itemExpiry" type="date" placeholder="Data de validade">
+                    <label for="itemIndispensable"><b>Indispensável</b></label>
+                    <input id="itemIndispensable" type="checkbox">
+                    
+                    <button class="add" onclick="addItem()"><span class="material-icons">add_circle_outline</span></button>
+                    <nav id="itemList"></nav>
+                    
+                </nav>
+            </section>
+            <section>
+                <nav>
+                    <button class="lista" onclick="irParaLista()"><span class="material-icons">receipt_long</span></button>
+                </nav>
+            </section>
+        </div>
     </main>
     <footer>
         <p>&copy; Andreza Gaspari / Ana Luiza Quintana / <a href="/ProjectD/TRABALHO PW/HTML/TelaWesley.html">Wesley Aragão</a></p>
     </footer>
-    <script src="/ProjectD/TRABALHO PW/JavaScript/scriptInicial.js"></script>
 </body>
 </html>
- 

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Certa</title>
-    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/ProjectD/image/icon.ico"" type="image/x-icon">
+    <link rel="stylesheet" href="/ProjectD/TRABALHO PW/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/ProjectD/TRABALHO PW/CSS/login.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -18,15 +19,17 @@
     <section class='card'>
       <h1> Entrar </h1>
       
-      <nav id='msgError'></nav>
-      
-      <nav class='label-float'>
-        <input type='text' id='usuario' paceholder='' required>
-        <label id='userLabel' for='usuario'>Usuario</label>
+      <nav id='msgError'>
+        <p id="errorMsg"></p>
       </nav>
       
       <nav class='label-float'>
-        <input type='password' id='senha' paceholder='' required>
+        <input type='email' id='email' placeholder=' ' required>
+        <label id='userLabel' for='email'>E-mail</label>
+      </nav>
+      
+      <nav class='label-float'>
+        <input type='password' id='senha' placeholder=' ' required>
         <label id='senhaLabel' for='senha'>Senha</label>
         <i class="fa fa-eye" aria-hidden="true"></i>
       </nav>
@@ -42,6 +45,11 @@
       <p> Não tem uma conta?
         <a href='/ProjectD/TRABALHO PW/HTML/Cadastro.html'> Cadastre-se </a>
       </p>
+      <br>
+    <p>  
+      <a href="/ProjectD/TRABALHO PW/HTML/Recupera.html">Esqueceu a senha?</a>
+    </p>
+     
       
     </section>
 </main>

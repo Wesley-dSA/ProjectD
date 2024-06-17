@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperação de Senha</title>
+    <link rel="shortcut icon" href="/ProjectD/image/icon.ico"" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/ProjectD/TRABALHO PW/CSS/Recupera.css">
+</head>
+<body>
+    <header>
+        <img src="/ProjectD/image/Logo.png" alt="Logo">
+    </header>
+    <main class='container'>
+        <section class='card'>
+          <h1>Recuperação de Senha</h1>
+          
+          <nav id='msgError'>
+            <p id="errorMsg"></p>
+          </nav>
+          
+          <nav id='msgSuccess'></nav>
+
+          <nav class="label-float">
+            <input type="email" id="email" placeholder=" " required>
+            <label id="labelEmail" for="email">E-mail</label>
+          </nav>
+
+          <nav class='justify-center'>
+            <button onclick='recuperarSenha()'>Recuperar Senha</button>
+          </nav>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Andreza Gaspari / Ana Luiza Quintana / Wesley Aragão</p>
+    </footer>
+
+    <script src="/ProjectD/TRABALHO PW/JavaScript/Recupera.js"></script>
+</body>
+</html>

@@ -4,17 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Compras</title>
-  <link rel="stylesheet" href="/ProjectD/TRABALHO PW/CSS/lista.css"> 
-  <script src="/ProjectD/TRABALHO PW/JavaScript/scriptLIsta.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/ProjectD/TRABALHO PW/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="/ProjectD/image/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/ProjectD/TRABALHO PW/CSS/lista.css">
+  <script src="/ProjectD/TRABALHO PW/JavaScript/scriptLIsta.js" defer></script>
 </head>
 <body>
- <header></header>
- <main>
-  <h1>Lista de Compras</h1>
-  <div id="listaCompras"></div>
-  <article>SOY EL FUEGO QUE</article>
-  <button onclick="voltarParaDispensa()">Voltar para Dispensa</button>
- </main>
- <footer></footer>
+  <header>
+    <img src="/ProjectD/image/logo.png" alt="">
+    <nav class="user-menu">
+        <span class="material-icons" onclick="toggleUserMenu()">account_circle</span>
+        <div id="userDropdown" class="dropdown-content">
+            <a href="#" onclick="logout()"><p><span class="material-icons">logout</span></p></a>
+        </div>
+    </nav>     
+  </header>
+  <main class="container">
+    <section class="card">
+      <h1>Lista de Compras</h1>
+      <nav id="listaCompras"></nav>
+      <button onclick="voltarParaDispensa()"><span class="material-icons">reply</span></button>
+      <button onclick="baixarListaDeCompras()"><span class="material-icons">download</span></button>
+    </section>
+  </main>
+  <footer></footer>
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Senha</title>
+    <link rel="shortcut icon" href="/ProjectD/image/icon.ico"" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/ProjectD/TRABALHO PW/CSS/NovaSenha.css">
+</head>
+<body>
+    <header>
+        <img src="/ProjectD/image/Logo.png" alt="Logo">
+    </header>
+    <main class='container'>
+        <section class='card'>
+          <h1>Definir Nova Senha</h1>
+          
+          <nav id='msgError'>
+            <p id="errorMsg"></p>
+          </nav>
+          
+          <nav id='msgSuccess'></nav>
+
+          <nav class="label-float">
+            <input type="password" id="novaSenha" placeholder=" " required>
+            <label id="labelNovaSenha" for="novaSenha">Nova Senha</label>
+            <i id="verNovaSenha" class="fa fa-eye" aria-hidden="true"></i>
+          </nav>
+
+          <nav class="label-float">
+            <input type="password" id="confirmNovaSenha" placeholder=" " required>
+            <label id="labelConfirmNovaSenha" for="confirmNovaSenha">Confirmar Nova Senha</label>
+            <i id="verConfirmNovaSenha" class="fa fa-eye" aria-hidden="true"></i>
+          </nav>
+
+          <nav class='justify-center'>
+            <button onclick='salvarNovaSenha()'>Salvar Senha</button>
+          </nav>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Andreza Gaspari / Ana Luiza Quintana / Wesley Aragão</p>
+    </footer>
+
+    <script src="/ProjectD/TRABALHO PW/JavaScript/NovaSenha.js"></script>
+</body>
+</html>
