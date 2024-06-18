@@ -39,11 +39,12 @@ footer p {
 }
 
 img {
+  top:0;
+  left:0;
   padding-left: 60px;
   padding-top: 150px;
   margin-top: 25px;
-  width: 125px;
-  height: 125px;
+  width: 200px;
 }
 
 div {

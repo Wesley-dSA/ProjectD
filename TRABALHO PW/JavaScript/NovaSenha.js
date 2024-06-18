@@ -49,6 +49,15 @@ confirmNovaSenha.addEventListener('keyup', () => {
 
 function salvarNovaSenha() {
   if (validNovaSenha && validConfirmNovaSenha) {
+    let userLogado = JSON.parse(localStorage.getItem('userLogado'));
+    if (userLogado.senha === novaSenha.value) {
+      msgError.setAttribute('style', 'display: block');
+      msgError.innerHTML = '<strong>A nova senha não pode ser igual à senha antiga</strong>';
+      msgSuccess.innerHTML = '';
+      msgSuccess.setAttribute('style', 'display: none');
+      return;
+    }
+
     msgSuccess.setAttribute('style', 'display: block');
     msgSuccess.innerHTML = 'Nova senha definida com sucesso!';
     msgError.innerHTML = '';
@@ -56,6 +65,15 @@ function salvarNovaSenha() {
 
     userLogado.senha = novaSenha.value;
     localStorage.setItem('userLogado', JSON.stringify(userLogado));
+
+    let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
+    listaUser = listaUser.map(user => {
+      if (user.emailCad === userLogado.email) {
+        user.senhaCad = novaSenha.value;
+      }
+      return user;
+    });
+    localStorage.setItem('listaUser', JSON.stringify(listaUser));
 
     setTimeout(() => {
       window.location.href = './login.html';

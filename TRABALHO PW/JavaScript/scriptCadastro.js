@@ -178,3 +178,7 @@ email.addEventListener('focus', () => {
 email.addEventListener('blur', () => {
   email.placeholder = ' ';
 });
+
+function voltarParaLogin() {
+  window.location.href = "/ProjectD/TRABALHO PW/HTML/Login.html";
+}

@@ -18,7 +18,15 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed
-  
+}
+
+body section{
+  align-items: start;
+  padding-top: 125px;
+}
+
+section{
+  padding-left: 250px;
 }
 
 footer{
@@ -38,11 +46,12 @@ img{
     height: 125px;
 }
 
+
 .container {
   display: flex;
-  justify-content: center;
+  justify-content:center;
   width: 100%;
-  margin-top: 130px;
+  margin-top: 60px;
 }
 
 .card {
@@ -52,6 +61,7 @@ img{
   box-shadow: 3px 3px 1px 0px #00000060;
   width: 400px;
 }
+
 
 h1{
   text-align: center;
