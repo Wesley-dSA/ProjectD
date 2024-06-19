@@ -1,13 +1,12 @@
-# Nome da Actions:  
 name: Generate Snake
 
-# Controlador do tempo que sera feito a atualização dos arquivos.
+# Controlador do tempo que será feito a atualização dos arquivos.
 on:
   schedule:
-      # Será atualizado a cada 5 horas.
+    # Será atualizado a cada 5 horas.
     - cron: "0 */5 * * *"
 
-# Permite executar na na lista de Actions (utilizado para testes de build).
+  # Permite executar na lista de Actions (utilizado para testes de build).
   workflow_dispatch:
 
 # Regras
@@ -15,31 +14,35 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
-    # Checks repo under $GITHUB_WORKSHOP, so your job can access it
+      # Checks repo under $GITHUB_WORKSHOP, so your job can access it
       - uses: actions/checkout@v2
 
-    # Repositorio que será utilizado para gerar os arquivos.
+      # Repositório que será utilizado para gerar os arquivos.
       - uses: Platane/snk@master
         id: snake-gif
         with:
-          github_user_name: Wesley-dSA #Seu usuario
+          github_user_name: Wesley-dSA #Seu usuário
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
 
+      # Verifica o status do git
       - run: git status
 
-      # Para as atualizações.
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
-          force: true
+      # Adiciona, comita e empurra as mudanças
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "wesley.aragao1331@gmail.com"
+          git config --local user.name "Wesley-dSA"
+          git add dist/github-contribution-grid-snake.gif dist/github-contribution-grid-snake.svg
+          git commit -m "Generate snake animation"
+          git push origin master --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Publica os arquivos no GitHub Pages
       - uses: crazy-max/ghaction-github-pages@v2.1.3
         with:
-          # the output branch we mentioned above
+          # O branch de saída mencionado acima
           target_branch: output
           build_dir: dist
         env:
